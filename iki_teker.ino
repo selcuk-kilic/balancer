@@ -14,7 +14,7 @@ void getOrientation(float yaw, float pitch, float roll) {
   Serial.print(" ");
   Serial.println(roll);  
 
-  float Power = pid.Update(3*roll, 0.4);
+  float Power = pid.Update(roll, 0.4);
     
   drive.bothMotors((Power>0), (unsigned char) abs(Power),(Power>0), (unsigned char) abs(Power) );
 }
@@ -23,9 +23,9 @@ void setup() {
   Serial.begin(9600);
   ahrs.setup(&getOrientation);
   drive.setup();
-    pid.Kp = 2.7;
+    pid.Kp = 8;
     pid.Ki = 0.0;
-    pid.Kd = 0.3;
+    pid.Kd = 2.5;
     //derivativeFiltration = config_reader.GetFloat("pid", "angle_derivativeFiltration", 0.1f);
     pid.lowLimit = -120.0;
     pid.highLimit = 120.0;

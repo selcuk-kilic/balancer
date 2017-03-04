@@ -40,7 +40,7 @@ public:
     }
     
     //! Integral component
-    integralComponent = integralComponent + Ki*error*dt;
+    integralComponent = integralComponent + Ki*error/**dt*/;
     if (integralComponent > Ki_Max)
     {
       integralComponent = Ki_Max;
@@ -51,7 +51,7 @@ public:
     }
     
     //! Calculate PID output
-    pidOutput = error * Kp + integralComponent + (derror/dt)*Kd;
+    pidOutput = error * Kp + integralComponent + derror*(Kd/*/dt*/);
     
     //! Check limits
     if(pidOutput > highLimit)
