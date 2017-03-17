@@ -2,7 +2,7 @@
 #define constants_h
 
 
-#define IMU_FILTER_FREQ_HZ 25
+#define TIMER_PERIOD_SEC 0.04
 #define ACCELEROMETER_RATE 400
 #define GYROSCOPE_RATE 400
 #define ACCELEROMETER_RANGE 2
